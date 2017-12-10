@@ -1,0 +1,40 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=320, user-scalable=0, minimal-ui"> 
+<title>口袋ATM</title> 
+<style type="text/css">
+*{    margin: 0;
+    padding: 0;}
+html,body,ul, li, img, p, h1, h2, h3, td, tr, dl, dd {
+    border: 0 none;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.id{text-align:center;font-size:0.8em;border: dashed 1px #ccc;width: 90%;margin-left: 5%;display: block;line-height: 50px;}
+</style>
+<body> 
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var u_id=getQueryString('u_id'); 
+	if(u_id==null){
+		$(".copy").html("找不到师父的ID,无法成功的建立推荐师徒关系,请确认是在师父推荐微信里的网址打开!");
+	}else{
+		$(".copy").html("当前师父ID："+u_id+" <br/> 长按保存二维码，从微信里面打开");
+        $(".id").html("<p><img src='imgs/sub/qrcode.png'></p>");
+	}
+});
+function getQueryString(name) { 
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	var r = location.search.substr(1).match(reg);
+	if (r != null) return unescape(decodeURI(r[2])); return null; 
+}
+</script>
+<div style="margin-top:20%;" ><p style="text-align:center;margin: auto;font-size:1em;" class='copy'></p>
+<br />
+<p class='id'></p>
+</div>
+
+</body></html>
